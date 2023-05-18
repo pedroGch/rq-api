@@ -21,7 +21,7 @@ app.use(cors({origin: '*'}));
 app.use(express.json())
 
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('hola mi server en express')
 });
 
