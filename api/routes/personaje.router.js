@@ -10,7 +10,7 @@ const pService = new PersonajeService();
  * trae todos los personajes
  */
 router.get('/', async (req, res) => {
-  const personaje = await pService.find()
+  const personaje = await pService.getPersonajes()
   res.json(personaje)
 })
 
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    const personaje = await pService.findOne(id);
+    const personaje = await pService.getPersonajeId(id);
     res.json(personaje);
   } catch (error) {
     next(error)
