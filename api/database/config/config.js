@@ -3,11 +3,11 @@ const { DATABASE_URL } = process.env;
 
 module.exports = {
   "development":{
-    "username":"postgres",
-    "password":"1234",
-    "database":"development",
+    "username":"root",
+    "password":"",
+    "database":"rq_api",
     "host": "127.0.0.1",
-    "dialect":"postgres"
+    "dialect":"mysql"
   },
   "test": {
     "username": "root",
@@ -31,3 +31,11 @@ module.exports = {
 //   "url": DATABASE_URL,
 //   "dialect": "postgres"
 // }
+
+// "development":{
+//   "username":"postgres",
+//   "password":"1234",
+//   "database":"development",
+//   "host": "127.0.0.1",
+//   "dialect":"postgres"
+// },
