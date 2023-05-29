@@ -3,8 +3,8 @@ const { DATABASE_URL } = process.env;
 
 module.exports = {
   "development":{
-    "username":"postgres",
-    "password":"123456",
+    "username":"root",
+    "password":"",
     "database":"development",
     "host": "127.0.0.1",
     "dialect":"mysql"
