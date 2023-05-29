@@ -5,7 +5,7 @@ module.exports = {
   "development":{
     "username":"root",
     "password":"",
-    "database":"development",
+    "database":"rq_api",
     "host": "127.0.0.1",
     "dialect":"mysql"
   },
@@ -33,9 +33,9 @@ module.exports = {
 // }
 
 // "development":{
-//   "username":"postgres",
-//   "password":"1234",
-//   "database":"development",
-//   "host": "127.0.0.1",
-//   "dialect":"postgres"
+//   "username":"d4ngbk9isvbe0zkg",
+//   "password":"rgkjlbu0p2ftmfdu",
+//   "database":"tvt1udpod77kstvq",
+//   "host": "q0h7yf5pynynaq54.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+//   "dialect":"mysql"
 // },
