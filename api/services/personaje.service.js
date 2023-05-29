@@ -1,38 +1,17 @@
 const boom = require('@hapi/boom')
+const model = require('../database/models/index')
 class PersonajeService {
 
   constructor(){
-    this.personajes =[
-      {"id":1,
-        "nombre":"cormac", 
-        "fue": 18,
-        "con": 15,
-        "des": 12,
-        "per": 16,
-        "asp": 10,
-        "tam": 13,
-        "int": 15,
-      },
-      {"id":2,"nombre":"akaza", "fue": 12},
-      {"id":3,"nombre":"anianka", "fue": 12},
-      {"id":4,"nombre":"zecul", "fue": 12}
-    ]
   }
 
   async create(data){
-    const newPersonaje = {
-      ...data
-    }
-    this.personajes.push(newPersonaje);
+    const newPersonaje = await model.Personaje.create(data)
     return newPersonaje
   }
 
-  async find(){
-    return this.personajes;
-  }
-
-  async findOne(id){ 
-    const p = this.personajes.find(item => item.id == id);
+  async getPersonajeId(id){ 
+    const p = await model.Personaje.findOne({where: {id : id}});
     if (!p){
       throw boom.notFound('No pudimos hallar a tu personaje');
     }
@@ -44,6 +23,15 @@ class PersonajeService {
 
   update(){
 
+  }
+
+  async getPersonajes(){
+    const personajes = await model.Personaje.findAll();
+    if (!personajes){
+      throw boom.notFound('Por el momento no hay personajes cargados');
+    }
+    // agregar filtro para filtrar entre los vivos y los muertos 
+    return personajes;
   }
 
 }

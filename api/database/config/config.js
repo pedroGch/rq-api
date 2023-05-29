@@ -3,9 +3,9 @@ const { DATABASE_URL } = process.env;
 
 module.exports = {
   "development":{
-    "username":"root",
-    "password":"",
-    "database":"rq_api",
+    "username":"postgres",
+    "password":"123456",
+    "database":"development",
     "host": "127.0.0.1",
     "dialect":"mysql"
   },
