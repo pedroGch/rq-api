@@ -8,11 +8,47 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      jugador_id: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       nombre: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      cultura: {
+      cultura_id: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      especie_id: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      raza_id: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      edad: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      peso: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      religion_id: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      profesion_padre_id: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      profesion_madre_id: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      profesion_aventurero: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -41,6 +77,34 @@ module.exports = {
         allowNull: false
       },
       int: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      o_fue: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      o_con: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      o_des: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      o_per: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      o_asp: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      o_tam: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      o_int: {
         type: Sequelize.SMALLINT,
         allowNull: false
       },
