@@ -33,7 +33,7 @@ const  getPersonajes = async () =>{
 
 const getAllStats = async (id) =>{
   const p = await model.Personaje.findByPk(id);
-  const pService = new PersonajeService(p.nombre, p.fue, p.con, p.des, p.per, p.asp, p.tam, p.int)
+  const pService = new PersonajeService(p.nombre, p.cultura ,p.fue, p.con, p.des, p.per, p.asp, p.tam, p.int)
   return pService.getAllStats();
 }
 
