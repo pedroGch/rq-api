@@ -33,11 +33,12 @@ router.get('/:id', async (req, res, next) => {
 })
 
 router.post('/', 
-validatorHandler(createPersonaje, 'body'),
+//validatorHandler(createPersonaje, 'body'),
 async (req, res) =>{
   const body = req.body;
-  const newPersonaje = await pService.create(body);
-  res.status(201).json(newPersonaje)
+  let personaje = await create(body);
+  personaje ? res.status(201).json(personaje) : res.status(500).json("los dioses no aceptan a tu personaje")
+  
 })
 
 /**
