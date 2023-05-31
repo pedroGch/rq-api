@@ -225,7 +225,41 @@ class PersonajeService {
   }
 
   getAllStats(){
-    return '';
+    this.asignarPuntosGolpe();
+    return {
+      "nombre" : this.getNombre(),
+      "fue" : this.fue(),
+      "con" : this.con(),
+      "tam" : this.tam(),
+      "int" : this.int(),
+      "per" : this.per(),
+      "asp" : this.asp(),
+      "des" : this.des(),
+      "puntosMagicos" : this.pMagicos(),
+      "puntosFatiga" : this.pFatiga(),
+      "puntosGolpe" : this.pGolpe(),
+      "cultura" : this.getCultura(),
+      "modDanio" : this.getModDanio(),
+      "modAgi" : this.modAgi(),
+      "modComunicacion" : this.modComunicacion(),
+      "modManipulacion" : this.modManipulacion(),
+      "modPerception" : this.modPercepcion(),
+      "modSigilo" : this.modSigilo(),
+      "modHabMagicas" : this.modHabMagicas(),
+      "mrCC" : this.mrCc(),
+      "mrConjuro" : this.mrConjuro(),
+      "mrDes" : this.mrDes(),
+      "mrTam" : this.mrTam(),
+      "localizaciones" : {
+        "cabeza" : this.localizaciones().cabeza(),
+        "pecho" : this.localizaciones().pecho(),
+        "abdomen" : this.localizaciones().abdomen(),
+        "brazoIzq" : this.localizaciones().brazoIzq(),
+        "brazoDer" : this.localizaciones().brazoDer(),
+        "piernaIzq" : this.localizaciones().piernaIzq(),
+        "piernaDer" : this.localizaciones().piernaDer(),
+      }
+    };
   }
 
 }
