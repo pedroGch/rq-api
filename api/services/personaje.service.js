@@ -1,6 +1,7 @@
 const UbicacionesService = require('./ubicaciones.service');
 class PersonajeService {
   nombre;
+  cultura;
   fue;
   con;
   des;
@@ -10,8 +11,9 @@ class PersonajeService {
   int;
   localizaciones;
 
-  constructor(nombre, fue, con, des, per, asp, tam, int){
+  constructor(nombre, cultura ,fue, con, des, per, asp, tam, int){
     this.nombre = nombre;
+    this.cultura = cultura;
     this.fue = fue;
     this.con = con;
     this.des = des;
@@ -73,19 +75,7 @@ class PersonajeService {
   }
   
   getCultura(){
-    const tirada = this.getRandomInt(1, 8);
-    if (tirada == 1){
-      return 'primitiva';
-    }
-    if (tirada == 2 || tirada == 3 ){
-      return 'nomada';
-    }
-    if (tirada >= 4 || tirada <= 6 ){
-      return 'barbara';
-    }
-    if (tirada == 7 || tirada == 8 ){
-      return 'civilizada';
-    }
+    return this.cultura;
   }
   
   getModDanio() {
