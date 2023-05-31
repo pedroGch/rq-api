@@ -27,15 +27,3 @@ module.exports = {
     }
   }
 }
-// "development": {
-//   "url": DATABASE_URL,
-//   "dialect": "postgres"
-// }
-
-// "development":{
-//   "username":"d4ngbk9isvbe0zkg",
-//   "password":"rgkjlbu0p2ftmfdu",
-//   "database":"tvt1udpod77kstvq",
-//   "host": "q0h7yf5pynynaq54.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-//   "dialect":"mysql"
-// },
