@@ -1,14 +1,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Personajes', {
+    await queryInterface.createTable('Personaje', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      jugador_id: {
+      jugadorId: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -16,15 +16,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      cultura_id: {
+      culturaId: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      especie_id: {
+      especieId: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      raza_id: {
+      razaId: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -36,19 +36,19 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      religion_id: {
+      religionId: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      profesion_padre_id: {
+      profesionPadreId: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      profesion_madre_id: {
+      profesionMadreId: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      profesion_aventurero: {
+      profesionAventurero: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -80,31 +80,31 @@ module.exports = {
         type: Sequelize.SMALLINT,
         allowNull: false
       },
-      o_fue: {
+      oFue: {
         type: Sequelize.SMALLINT,
         allowNull: false
       },
-      o_con: {
+      oCon: {
         type: Sequelize.SMALLINT,
         allowNull: false
       },
-      o_des: {
+      oDes: {
         type: Sequelize.SMALLINT,
         allowNull: false
       },
-      o_per: {
+      oPer: {
         type: Sequelize.SMALLINT,
         allowNull: false
       },
-      o_asp: {
+      oAsp: {
         type: Sequelize.SMALLINT,
         allowNull: false
       },
-      o_tam: {
+      oTam: {
         type: Sequelize.SMALLINT,
         allowNull: false
       },
-      o_int: {
+      oInt: {
         type: Sequelize.SMALLINT,
         allowNull: false
       },
@@ -119,6 +119,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Personajes');
+    await queryInterface.dropTable('Personaje');
   }
 };
