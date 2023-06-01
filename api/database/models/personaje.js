@@ -11,21 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Personaje.hasOne(models.Cultura)
     }
   }
   Personaje.init({
-    jugador_id: DataTypes.INTEGER,
-    cultura_id: DataTypes.INTEGER,
-    especie_id: DataTypes.INTEGER,
-    raza_id: DataTypes.INTEGER,
+    jugadorId: DataTypes.INTEGER,
+    culturaId: DataTypes.INTEGER,
+    especieId: DataTypes.INTEGER,
+    razaId: DataTypes.INTEGER,
     edad: DataTypes.INTEGER,
     peso: DataTypes.INTEGER,
-    religion_id: DataTypes.INTEGER,
-    profesion_padre_id: DataTypes.INTEGER,
-    profesion_madre_id: DataTypes.INTEGER,
-    profesion_aventurero: DataTypes.INTEGER,
+    religionId: DataTypes.INTEGER,
+    profesionPadreId: DataTypes.INTEGER,
+    profesionMadreId: DataTypes.INTEGER,
+    profesionAventurero: DataTypes.INTEGER,
     nombre: DataTypes.STRING,
-    cultura_id: DataTypes.STRING,
+    culturaId: DataTypes.STRING,
     fue: DataTypes.SMALLINT,
     con: DataTypes.SMALLINT,
     des: DataTypes.SMALLINT,
@@ -33,16 +34,17 @@ module.exports = (sequelize, DataTypes) => {
     asp: DataTypes.SMALLINT,
     tam: DataTypes.SMALLINT,
     int: DataTypes.SMALLINT,
-    o_fue: DataTypes.SMALLINT,
-    o_con: DataTypes.SMALLINT,
-    o_des: DataTypes.SMALLINT,
-    o_per: DataTypes.SMALLINT,
-    o_asp: DataTypes.SMALLINT,
-    o_tam: DataTypes.SMALLINT,
-    o_int: DataTypes.SMALLINT
+    oFue: DataTypes.SMALLINT,
+    oCon: DataTypes.SMALLINT,
+    oDes: DataTypes.SMALLINT,
+    oPer: DataTypes.SMALLINT,
+    oAsp: DataTypes.SMALLINT,
+    oTam: DataTypes.SMALLINT,
+    oInt: DataTypes.SMALLINT
   }, {
     sequelize,
     modelName: 'Personaje',
+    freezeTableName: true
   });
   return Personaje;
 };
