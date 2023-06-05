@@ -21,10 +21,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.SMALLINT
       },
-      profesionId: {
-        allowNull: false,
-        type: Sequelize.SMALLINT
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

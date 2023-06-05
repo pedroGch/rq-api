@@ -12,6 +12,10 @@ module.exports = {
       nombre: {
         type: Sequelize.STRING
       },
+      culturaId: {
+        allowNull: false,
+        type: Sequelize.SMALLINT
+      },
       desde: {
         type: Sequelize.SMALLINT
       },
