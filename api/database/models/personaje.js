@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   Personaje.init({
     jugadorId: DataTypes.INTEGER,
-    culturaId: DataTypes.INTEGER,
     especieId: DataTypes.INTEGER,
     razaId: DataTypes.INTEGER,
     edad: DataTypes.INTEGER,

@@ -11,13 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Cultura.hasOne(models.Profesion)
+      Cultura.hasMany(models.Profesion)
       Cultura.belongsTo(models.Personaje)
     }
   }
   Cultura.init({
     nombre: DataTypes.STRING,
-    ProfesionId: DataTypes.SMALLINT,
     desde: DataTypes.SMALLINT,
     hasta: DataTypes.SMALLINT
   }, {
