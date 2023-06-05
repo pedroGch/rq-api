@@ -106,7 +106,12 @@ class PersonajeService {
       this.localizaciones.asignarPuntos(this.pGolpe())
     } 
   }
-
+  modAtaque(){
+    return this.modManipulacion();
+  }
+  modDetenAtaque(){
+    return this.modAgi();
+  }
   modAgi(){
     return this.hallarPrimaria(this.getDes()) 
     + this.hallarSecundaria(this.getFue()) 
