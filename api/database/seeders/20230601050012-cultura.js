@@ -4,13 +4,12 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      "Culturas",
+      "Cultura",
       [
         {
           nombre: "primitiva",
           desde: 0,
           hasta: 1,
-          profesion_id: 0,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -18,7 +17,6 @@ module.exports = {
           nombre: "nómada",
           desde: 2,
           hasta: 3,
-          profesion_id: 0,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -26,7 +24,6 @@ module.exports = {
           nombre: "barbara",
           desde: 4,
           hasta: 6,
-          profesion_id: 0,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -34,7 +31,6 @@ module.exports = {
           nombre: "civilizada",
           desde: 7,
           hasta: 8,
-          profesion_id: 0,
           createdAt: new Date(),
           updatedAt: new Date(),
         }
