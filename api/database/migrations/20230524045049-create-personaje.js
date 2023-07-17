@@ -8,48 +8,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      jugadorId: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
+  
       nombre: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      culturaId: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      especieId: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      razaId: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
       edad: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      altura: {
+        type: Sequelize.SMALLINT,
         allowNull: false
       },
       peso: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      religionId: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      profesionPadreId: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      profesionMadreId: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      profesionAventurero: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       fue: {
@@ -105,6 +78,46 @@ module.exports = {
         allowNull: false
       },
       oInt: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      int_libre: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      mod_defensa: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      mod_ataque: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      mmr_cc: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      mmr_tam: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      mmr_des: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      mod_danio: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      pto_fatiga: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      pto_golpe: {
+        type: Sequelize.SMALLINT,
+        allowNull: false
+      },
+      pto_magicos: {
         type: Sequelize.SMALLINT,
         allowNull: false
       },

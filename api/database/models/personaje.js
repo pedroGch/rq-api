@@ -11,21 +11,27 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Personaje.hasOne(models.Cultura)
+      Personaje.belongsTo(models.Cultura)
+      Personaje.belongsTo(models.HabSigilo)
+      Personaje.belongsTo(models.HabPercepcion)
+      Personaje.belongsTo(models.HabManipulacion)
+      Personaje.belongsTo(models.HabConocimiento)
+      Personaje.belongsTo(models.Localizacion)
+      Personaje.belongsTo(models.HabAgilidad)
+      Personaje.belongsTo(models.HabComunicacion)
+      Personaje.belongsTo(models.HabMagicas)
+      Personaje.belongsTo(models.Profesion,{
+        foreignKey:{
+          name: 'profesionPadresId',
+        }
+      })
     }
   }
   Personaje.init({
-    jugadorId: DataTypes.INTEGER,
-    especieId: DataTypes.INTEGER,
-    razaId: DataTypes.INTEGER,
+    nombre: DataTypes.STRING,
     edad: DataTypes.INTEGER,
     peso: DataTypes.INTEGER,
-    religionId: DataTypes.INTEGER,
-    profesionPadreId: DataTypes.INTEGER,
-    profesionMadreId: DataTypes.INTEGER,
-    profesionAventurero: DataTypes.INTEGER,
-    nombre: DataTypes.STRING,
-    culturaId: DataTypes.STRING,
+    altura: DataTypes.INTEGER,
     fue: DataTypes.SMALLINT,
     con: DataTypes.SMALLINT,
     des: DataTypes.SMALLINT,
@@ -39,7 +45,17 @@ module.exports = (sequelize, DataTypes) => {
     oPer: DataTypes.SMALLINT,
     oAsp: DataTypes.SMALLINT,
     oTam: DataTypes.SMALLINT,
-    oInt: DataTypes.SMALLINT
+    oInt: DataTypes.SMALLINT,
+    int_libre: DataTypes.SMALLINT,
+    mod_defensa: DataTypes.SMALLINT,
+    mod_ataque: DataTypes.SMALLINT,
+    mmr_cc: DataTypes.SMALLINT,
+    mmr_tam: DataTypes.SMALLINT,
+    mmr_des: DataTypes.SMALLINT,
+    mod_danio: DataTypes.STRING,
+    pto_fatiga: DataTypes.SMALLINT,
+    pto_golpe: DataTypes.SMALLINT,
+    pto_magicos: DataTypes.SMALLINT,
   }, {
     sequelize,
     modelName: 'Personaje',
