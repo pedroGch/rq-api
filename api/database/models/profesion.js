@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Profesion.belongsTo(models.Cultura)
+      Profesion.hasMany(models.Personaje)
     }
   }
   Profesion.init({
