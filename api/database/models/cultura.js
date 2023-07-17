@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Cultura.hasMany(models.Profesion)
-      Cultura.belongsTo(models.Personaje)
+      Cultura.hasOne(models.Personaje)
     }
   }
   Cultura.init({
