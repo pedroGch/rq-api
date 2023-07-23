@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'instrumento',
+    freezeTableName: true
   });
   return instrumento;
 };

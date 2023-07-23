@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'idioma',
+    freezeTableName: true
   });
   return idioma;
 };
