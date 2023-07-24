@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Cultura extends Model {
+  class arma_cultura extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,19 +11,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Cultura.hasMany(models.Profesion)
-      Cultura.hasMany(models.arma_cultura)
-      Cultura.hasOne(models.Personaje)
+      arma_cultura.belongsTo(models.Arma)
+      arma_cultura.belongsTo(models.Cultura)
     }
   }
-  Cultura.init({
+  arma_cultura.init({
     nombre: DataTypes.STRING,
-    desde: DataTypes.SMALLINT,
-    hasta: DataTypes.SMALLINT
+    percentil: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Cultura',
+    modelName: 'arma_cultura',
     freezeTableName: true
   });
-  return Cultura;
+  return arma_cultura;
 };

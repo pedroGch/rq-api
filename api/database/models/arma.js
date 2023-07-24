@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Arma.belongsTo(models.TipoArma)
+      Arma.hasMany(models.arma_cultura)
     }
   }
   Arma.init({
