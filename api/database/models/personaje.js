@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      //magias
+      Personaje.belongsTo(models.Hechiceria)
+      Personaje.belongsTo(models.MagiaDivina)
+      Personaje.belongsTo(models.MagiaEspiritual)
+      //
       Personaje.belongsTo(models.Cultura)
       Personaje.belongsTo(models.HabSigilo)
       Personaje.belongsTo(models.HabPercepcion)
