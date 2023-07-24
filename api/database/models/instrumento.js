@@ -3,22 +3,22 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class instrumento extends Model {
+  class Instrumento extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Instrumento.hasMany(models.instrumento_personaje)
     }
   }
-  instrumento.init({
+  Instrumento.init({
     nombre: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'instrumento',
+    modelName: 'Instrumento',
     freezeTableName: true
   });
-  return instrumento;
+  return Instrumento;
 };

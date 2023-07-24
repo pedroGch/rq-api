@@ -20,6 +20,8 @@ module.exports = (sequelize, DataTypes) => {
       Personaje.belongsTo(models.HabAgilidad)
       Personaje.belongsTo(models.HabComunicacion)
       Personaje.belongsTo(models.HabMagicas)
+      Personaje.hasMany(models.idioma_personaje)
+      Personaje.hasMany(models.instrumento_personaje)
       Personaje.belongsTo(models.Profesion,{
         foreignKey:{
           name: 'profesionPadresId',
