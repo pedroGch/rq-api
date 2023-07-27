@@ -15,13 +15,41 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabMagicas.init({
-    mod: DataTypes.INTEGER,
-    ceremonia: DataTypes.INTEGER,
-    encantamiento: DataTypes.INTEGER,
-    invocacion: DataTypes.INTEGER,
-    duracion: DataTypes.INTEGER,
-    intensidad: DataTypes.INTEGER,
-    multiconjuro: DataTypes.INTEGER
+    mod: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    ceremonia: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    encantamiento: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    invocacion: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    duracion: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    intensidad: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    multiconjuro: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    }
   }, {
     sequelize,
     modelName: 'HabMagicas',
