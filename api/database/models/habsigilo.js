@@ -15,9 +15,21 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabSigilo.init({
-    mod: DataTypes.INTEGER,
-    esconderse: DataTypes.INTEGER,
-    deslizarse: DataTypes.INTEGER
+    mod:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    }, 
+    esconderse:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10
+    }, 
+    deslizarse:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10
+    } 
   }, {
     sequelize,
     modelName: 'HabSigilo',

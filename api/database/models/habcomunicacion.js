@@ -15,14 +15,46 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabComunicacion.init({
-    mod: DataTypes.INTEGER,
-    actuar: DataTypes.INTEGER,
-    cantar: DataTypes.INTEGER,
-    habla_fluida: DataTypes.INTEGER,
-    hablar_idioma_propio: DataTypes.INTEGER,
-    oratoria: DataTypes.INTEGER,
-    regatear: DataTypes.INTEGER,
-    seduccion: DataTypes.INTEGER
+    mod: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    actuar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    cantar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    habla_fluida: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    hablar_idioma_propio: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 30
+    },
+    oratoria: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    regatear: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    seduccion: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    }
   }, {
     sequelize,
     modelName: 'HabComunicacion',

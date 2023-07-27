@@ -15,11 +15,31 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabManipulacion.init({
-    mod: DataTypes.INTEGER,
-    cond_carretas: DataTypes.INTEGER,
-    inventar: DataTypes.INTEGER,
-    ocultar: DataTypes.INTEGER,
-    trucos_manos: DataTypes.INTEGER
+    mod:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    }, 
+    cond_carretas:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    }, 
+    inventar:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    }, 
+    ocultar:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    }, 
+    trucos_manos:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    } 
   }, {
     sequelize,
     modelName: 'HabManipulacion',

@@ -15,18 +15,66 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabConocimiento.init({
-    mod: DataTypes.INTEGER,
-    animal: DataTypes.INTEGER,
-    humano: DataTypes.INTEGER,
-    mineral: DataTypes.INTEGER,
-    mundo: DataTypes.INTEGER,
-    vegetal: DataTypes.INTEGER,
-    fabricacion: DataTypes.INTEGER,
-    leer_escribir_idioma: DataTypes.INTEGER,
-    navegacion: DataTypes.INTEGER,
-    primeros_aux: DataTypes.INTEGER,
-    tratar_enfermedad: DataTypes.INTEGER,
-    valorar_objetos: DataTypes.INTEGER
+    mod:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    animal:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    humano:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    mineral:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    mundo:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    vegetal:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    fabricacion:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10
+    },
+    leer_escribir_idioma:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    navegacion:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    primeros_aux:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10
+    },
+    tratar_enfermedad:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    valorar_objetos: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    }
   }, {
     sequelize,
     modelName: 'HabConocimiento',

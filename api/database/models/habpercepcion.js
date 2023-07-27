@@ -15,14 +15,46 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabPercepcion.init({
-    mod: DataTypes.INTEGER,
-    buscar: DataTypes.INTEGER,
-    escuchar: DataTypes.INTEGER,
-    gustar: DataTypes.INTEGER,
-    oler: DataTypes.INTEGER,
-    otear: DataTypes.INTEGER,
-    rastrear: DataTypes.INTEGER,
-    sentir: DataTypes.INTEGER
+    mod: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    buscar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 25
+    },
+    escuchar:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 25
+    }, 
+    gustar:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 25
+    }, 
+    oler:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 25
+    }, 
+    otear:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 25
+    }, 
+    rastrear:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 25
+    }, 
+    sentir:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 25
+    } 
   }, {
     sequelize,
     modelName: 'HabPercepcion',

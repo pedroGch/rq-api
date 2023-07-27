@@ -15,14 +15,46 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabAgilidad.init({
-    arrojar: DataTypes.INTEGER,
-    esquivar: DataTypes.INTEGER,
-    montar: DataTypes.INTEGER,
-    nadar: DataTypes.INTEGER,
-    remar: DataTypes.INTEGER,
-    saltar: DataTypes.INTEGER,
-    trpar: DataTypes.INTEGER,
-    velero: DataTypes.INTEGER
+    arrojar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 25
+    },
+    esquivar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    montar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    nadar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 15
+    },
+    remar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 5
+    },
+    saltar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 25
+    },
+    trpar: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 40
+    },
+    velero: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    }
   }, {
     sequelize,
     modelName: 'HabAgilidad',
