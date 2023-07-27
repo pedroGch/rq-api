@@ -3,6 +3,21 @@ const model = require('../database/models/index')
 const PersonajeService = require('./../services/personaje.service')
 
 const create = async (data) =>{
+  
+  const newHabSigilo       = await model.HabSigilo.create()
+  const newHabAgilidad     = await model.HabAgilidad.create()
+  const newHabComunicacion = await model.HabComunicacion.create()
+  const newHabConocimiento = await model.HabConocimiento.create()
+  const newHabManipulacion = await model.HabManipulacion.create()
+  const newHabPercepcion   = await model.HabPercepcion.create()
+  
+  data.HabSigiloId       = newHabSigilo.id
+  data.HabAgilidadId     = newHabAgilidad.id
+  data.HabComunicacionId = newHabComunicacion.id
+  data.HabConocimientoId = newHabConocimiento.id
+  data.HabManipulacionId = newHabManipulacion.id
+  data.HabPercepcionId   = newHabPercepcion.id
+
   const newPersonaje = await model.Personaje.create(data)
   return newPersonaje
 }
