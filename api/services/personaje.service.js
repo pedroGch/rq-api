@@ -223,13 +223,13 @@ class PersonajeService {
     this.asignarPuntosGolpe();
     return {
       "nombre" : this.getNombre(),
-      "fue" : this.fue(),
-      "con" : this.con(),
-      "tam" : this.tam(),
-      "int" : this.int(),
-      "per" : this.per(),
-      "asp" : this.asp(),
-      "des" : this.des(),
+      "fue" : this.getFue(),
+      "con" : this.getCon(),
+      "tam" : this.getTam(),
+      "int" : this.getInt(),
+      "per" : this.getPer(),
+      "asp" : this.getAsp(),
+      "des" : this.getDes(),
       "puntosMagicos" : this.pMagicos(),
       "puntosFatiga" : this.pFatiga(),
       "puntosGolpe" : this.pGolpe(),
@@ -246,13 +246,13 @@ class PersonajeService {
       "mrDes" : this.mrDes(),
       "mrTam" : this.mrTam(),
       "localizaciones" : {
-        "cabeza" : this.localizaciones().cabeza(),
-        "pecho" : this.localizaciones().pecho(),
-        "abdomen" : this.localizaciones().abdomen(),
-        "brazoIzq" : this.localizaciones().brazoIzq(),
-        "brazoDer" : this.localizaciones().brazoDer(),
-        "piernaIzq" : this.localizaciones().piernaIzq(),
-        "piernaDer" : this.localizaciones().piernaDer(),
+        "cabeza"    : this.localizaciones.getCabeza(),
+        "pecho"     : this.localizaciones.getPecho(),
+        "abdomen"   : this.localizaciones.getAbdomen(),
+        "brazoIzq"  : this.localizaciones.getBrazoIzq(),
+        "brazoDer"  : this.localizaciones.getBrazoDer(),
+        "piernaIzq" : this.localizaciones.getPiernaIzq(),
+        "piernaDer" : this.localizaciones.getPiernaDer(),
       }
     };
   }

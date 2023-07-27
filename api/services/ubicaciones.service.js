@@ -8,52 +8,52 @@ class UbicacionesService {
   piernaDer
 
   constructor (brazoIzq, brazoDer, pecho, abdomen, piernaIzq, piernaDer, cabeza){
-    this.brazoIzq = brazoIzq 
-    this.brazoDer = brazoDer 
-    this.pecho = pecho
-    this.abdomen = abdomen
+    this.brazoIzq  = brazoIzq 
+    this.brazoDer  = brazoDer 
+    this.pecho     = pecho
+    this.abdomen   = abdomen
     this.piernaIzq = piernaIzq 
     this.piernaDer = piernaDer 
-    this.cabeza = cabeza
+    this.cabeza    = cabeza
   }
 
-  get brazoIzq() {
+  getBrazoIzq() {
     return this.brazoIzq;
   }
 
 
 
-  get brazoDer() {
+  getBrazoDer() {
     return this.brazoDer;
   }
 
 
 
-  get pecho() {
+  getPecho() {
     return this.pecho;
   }
 
 
 
-  get abdomen() {
+  getAbdomen() {
     return this.abdomen;
   }
 
 
 
-  get cabeza() {
+  getCabeza() {
     return this.cabeza;
   }
 
 
 
-  get piernaIzq() {
+  getPiernaIzq() {
     return this.piernaIzq;
   }
 
 
 
-  get piernaDer() {
+  getPiernaDer() {
     return this.piernaDer;
   }
 
