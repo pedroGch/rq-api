@@ -5,7 +5,7 @@ const validatorHandler = require('./../middlewares/validator.handler')
 const {createPersonaje} = require('./../schemas/personaje.schema')
 const {create,  getPersonajeId,  getPersonajes,  update,  getAllStats} = require('./../controller/personaje.controller')
 
-const pService = new PersonajeService();
+
 
 /**
  * trae todos los personajes
@@ -22,9 +22,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    //const personaje = await pService.getPersonajeId(id);
-    const personaje = await getPersonajeId(id)
-    res.json(personaje);
+    const p = await getPersonajeId(id)
+    const personaje = new PersonajeService(p.nombre, p.cultura ,p.fue, p.con, p.des, p.per, p.asp, p.tam, p.int);
+    res.json(personaje.getAllStats());
   } catch (error) {
     next(error)
   }
