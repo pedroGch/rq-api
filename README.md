@@ -4,12 +4,17 @@ esta api fue creada con el fin de gestionar la información de los personajes de
 # Requisitos
 se recomienda tener instalado en tu pc:
   * nodemon - **npm install --save-dev nodemon**
-  * pgAdmin 4
+  * MySql
 
-# Instalación de dependencias
+# comandos a ejecutar
 npm install
+npm run db:create
+npm run db:migrate
+npm run dev
 
-# Puesta en marcha
-**npm start**
+# se recomienda la implementación de un .env
+PORT=8000
+NODE_ENV=development
+
 
 
