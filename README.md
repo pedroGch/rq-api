@@ -7,14 +7,14 @@ se recomienda tener instalado en tu pc:
   * MySql
 
 # comandos a ejecutar
-npm install
-npm run db:create
-npm run db:migrate
-npm run dev
+ * npm install
+ * npm run db:create
+ * npm run db:migrate
+ * npm run dev
 
 # se recomienda la implementación de un .env
-PORT=8000
-NODE_ENV=development
+ * PORT=8000
+ * NODE_ENV=development
 
 
 
