@@ -10,19 +10,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       mod: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       cond_carretas: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 5
       },
       inventar: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 5
       },
       ocultar: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 5
       },
       trucos_manos: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 5
       },
       createdAt: {
         allowNull: false,

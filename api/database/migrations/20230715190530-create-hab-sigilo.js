@@ -10,13 +10,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       mod: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       esconderse: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 10
       },
       deslizarse: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 10
       },
       createdAt: {
         allowNull: false,
