@@ -57,7 +57,24 @@ class UbicacionesService {
     return this.piernaDer;
   }
 
-
+  retornarPuntosDeGolpe(){
+    return {
+      "cabeza_pa" : 0,
+      "cabeza_pg" : this.getCabeza(),
+      "brazo_derecho_pa" : 0,
+      "brazo_derecho_pg" : this.getBrazoDer(),
+      "brazo_izquierdo_pa" : 0,
+      "brazo_izquierdo_pg" : this.getBrazoIzq(),
+      "pierna_derecha_pa" : 0,
+      "pierna_derecha_pg" : this.getPiernaDer(),
+      "pierna_izquierda_pa" : 0,
+      "pierna_izquierda_pg" : this.getPiernaIzq(),
+      "pecho_pa" : 0,
+      "pecho_pg" : this.getPecho(),
+      "abdomen_pa" : 0,
+      "abdomen_pg" :this.getAbdomen()
+    }
+  }
 
   introducirPuntos(brD, brI, pecho, abdomen, cabeza, piD, piI){
     this.brazoDer = brD

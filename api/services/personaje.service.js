@@ -219,6 +219,11 @@ class PersonajeService {
     return modificador;
   }
 
+  retornarPuntosDeGolpe(){
+    this.asignarPuntosGolpe();
+    return this.localizaciones.retornarPuntosDeGolpe()
+  }
+
   getAllStats(){
     this.asignarPuntosGolpe();
     return {
