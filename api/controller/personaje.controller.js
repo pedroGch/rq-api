@@ -3,7 +3,9 @@ const model = require('../database/models/index')
 const PersonajeService = require('./../services/personaje.service')
 
 const create = async (data) =>{
-  
+  const personaje = new PersonajeService(data.nombre, data.cultura, data.fue, data.con, data.des, data.per, data.asp, data.tam, data.int)
+
+  const newLocalizaciones  = await model.Localizacion.create(personaje.retornarPuntosDeGolpe())
   const newHabSigilo       = await model.HabSigilo.create()
   const newHabAgilidad     = await model.HabAgilidad.create()
   const newHabMagicas      = await model.HabMagicas.create()
@@ -12,16 +14,28 @@ const create = async (data) =>{
   const newHabManipulacion = await model.HabManipulacion.create()
   const newHabPercepcion   = await model.HabPercepcion.create()
   
+  data.LocalizacionId    = newLocalizaciones.id
   data.HabSigiloId       = newHabSigilo.id
   data.HabAgilidadId     = newHabAgilidad.id
-  data.newHabMagicasId   = newHabMagicas.id
+  data.HabMagicaId       = newHabMagicas.id
   data.HabComunicacionId = newHabComunicacion.id
   data.HabConocimientoId = newHabConocimiento.id
   data.HabManipulacionId = newHabManipulacion.id
   data.HabPercepcionId   = newHabPercepcion.id
+  data.altura            = 178
+  data.int_libre         = 0 
+  data.mod_defensa       = personaje.getModDanio() 
+  data.mod_ataque        = personaje.modAtaque()
+  data.mmr_cc            = personaje.mrCc() 
+  data.mmr_tam           = personaje.mrTam() 
+  data.mmr_des           = personaje.mrDes() 
+  data.mod_danio         = personaje.getModDanio() 
+  data.pto_fatiga        = personaje.pFatiga() 
+  data.pto_golpe         = personaje.pGolpe() 
+  data.pto_magicos       = personaje.pMagicos() 
 
-  const newPersonaje = await model.Personaje.create(data)
-  return newPersonaje
+  const p = await model.Personaje.create(data)
+  return p
 }
 
 const getPersonajeId = async (id) =>{ 
