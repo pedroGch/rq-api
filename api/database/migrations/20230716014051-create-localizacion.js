@@ -41,6 +41,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         defaultValue: 0
       },
+      pierna_izquierda_pa: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
+      pierna_izquierda_pa: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       pecho_pa: {
         type: Sequelize.INTEGER,
         defaultValue: 0
