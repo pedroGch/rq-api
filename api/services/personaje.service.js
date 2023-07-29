@@ -1,7 +1,6 @@
 const UbicacionesService = require('./ubicaciones.service');
+
 class PersonajeService {
-  nombre;
-  cultura;
   fue;
   con;
   des;
@@ -11,9 +10,8 @@ class PersonajeService {
   int;
   localizaciones;
 
-  constructor(nombre, cultura ,fue, con, des, per, asp, tam, int){
-    this.nombre = nombre;
-    this.cultura = cultura;
+  constructor(fue, con, des, per, asp, tam, int){
+
     this.fue = fue;
     this.con = con;
     this.des = des;
@@ -22,10 +20,6 @@ class PersonajeService {
     this.tam = tam;
     this.int = int;
     this.localizaciones = new UbicacionesService(1,1,1,1,1,1,1);
-  }
-
-  getNombre (){
-    return this.nombre ;
   }
 
   getFue (){
@@ -72,10 +66,6 @@ class PersonajeService {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-  }
-  
-  getCultura(){
-    return this.cultura;
   }
   
   getModDanio() {
@@ -225,20 +215,10 @@ class PersonajeService {
   }
 
   getAllStats(){
-    this.asignarPuntosGolpe();
     return {
-      "nombre" : this.getNombre(),
-      "fue" : this.getFue(),
-      "con" : this.getCon(),
-      "tam" : this.getTam(),
-      "int" : this.getInt(),
-      "per" : this.getPer(),
-      "asp" : this.getAsp(),
-      "des" : this.getDes(),
       "puntosMagicos" : this.pMagicos(),
       "puntosFatiga" : this.pFatiga(),
       "puntosGolpe" : this.pGolpe(),
-      "cultura" : this.getCultura(),
       "modDanio" : this.getModDanio(),
       "modAgi" : this.modAgi(),
       "modComunicacion" : this.modComunicacion(),
@@ -250,16 +230,7 @@ class PersonajeService {
       "mrConjuro" : this.mrConjuro(),
       "mrDes" : this.mrDes(),
       "mrTam" : this.mrTam(),
-      "localizaciones" : {
-        "cabeza"    : this.localizaciones.getCabeza(),
-        "pecho"     : this.localizaciones.getPecho(),
-        "abdomen"   : this.localizaciones.getAbdomen(),
-        "brazoIzq"  : this.localizaciones.getBrazoIzq(),
-        "brazoDer"  : this.localizaciones.getBrazoDer(),
-        "piernaIzq" : this.localizaciones.getPiernaIzq(),
-        "piernaDer" : this.localizaciones.getPiernaDer(),
-      }
-    };
+    }
   }
 
 }
