@@ -3,7 +3,7 @@ const model = require('../database/models/index')
 const PersonajeService = require('./../services/personaje.service')
 
 const create = async (data) =>{
-  const personaje = new PersonajeService(data.nombre, data.cultura, data.fue, data.con, data.des, data.per, data.asp, data.tam, data.int)
+  const personaje = new PersonajeService(data.fue, data.con, data.des, data.per, data.asp, data.tam, data.int)
 
   const newLocalizaciones  = await model.Localizacion.create(personaje.retornarPuntosDeGolpe())
   const newHabSigilo       = await model.HabSigilo.create()
@@ -23,16 +23,8 @@ const create = async (data) =>{
   data.HabManipulacionId = newHabManipulacion.id
   data.HabPercepcionId   = newHabPercepcion.id
   data.altura            = 178
-  data.int_libre         = 0 
-  data.mod_defensa       = personaje.getModDanio() 
-  data.mod_ataque        = personaje.modAtaque()
-  data.mmr_cc            = personaje.mrCc() 
-  data.mmr_tam           = personaje.mrTam() 
-  data.mmr_des           = personaje.mrDes() 
-  data.mod_danio         = personaje.getModDanio() 
-  data.pto_fatiga        = personaje.pFatiga() 
-  data.pto_golpe         = personaje.pGolpe() 
-  data.pto_magicos       = personaje.pMagicos() 
+  //data.ProfesionId       = 1
+  // data.CulturaId         = 1
 
   const p = await model.Personaje.create(data)
   return p
@@ -40,6 +32,19 @@ const create = async (data) =>{
 
 const getPersonajeId = async (id) =>{ 
   const p = await model.Personaje.findByPk(id);
+
+  const personaje = new PersonajeService(p.fue, p.con, p.des, p.per, p.asp, p.tam, p.int)
+
+  p.dataValues.mod_defensa       = personaje.getModDanio() 
+  p.dataValues.mod_ataque        = personaje.modAtaque()
+  p.dataValues.mmr_cc            = personaje.mrCc() 
+  p.dataValues.mmr_tam           = personaje.mrTam() 
+  p.dataValues.mmr_des           = personaje.mrDes() 
+  p.dataValues.mod_danio         = personaje.getModDanio() 
+  p.dataValues.pto_fatiga        = personaje.pFatiga() 
+  p.dataValues.pto_golpe         = personaje.pGolpe() 
+  p.dataValues.pto_magicos       = personaje.pMagicos()
+
   if (!p){
     throw boom.notFound('No pudimos hallar a tu personaje');
   }
