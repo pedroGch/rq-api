@@ -15,11 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabPercepcion.init({
-    mod: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
-    },
     buscar: {
       type: DataTypes.INTEGER,
       allowNull: false,

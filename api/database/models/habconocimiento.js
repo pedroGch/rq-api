@@ -15,11 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabConocimiento.init({
-    mod:{
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
-    },
     animal:{
       type: DataTypes.INTEGER,
       allowNull: false,

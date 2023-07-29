@@ -15,11 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabMagicas.init({
-    mod: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
-    },
     ceremonia: {
       type: DataTypes.INTEGER,
       allowNull: false,

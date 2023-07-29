@@ -15,11 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabManipulacion.init({
-    mod:{
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
-    }, 
     cond_carretas:{
       type: DataTypes.INTEGER,
       allowNull: false,

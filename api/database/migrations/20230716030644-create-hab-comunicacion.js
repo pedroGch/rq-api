@@ -9,10 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      mod: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0
-      },
       actuar: {
         type: Sequelize.INTEGER,
         defaultValue: 5

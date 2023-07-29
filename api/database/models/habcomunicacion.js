@@ -15,11 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   HabComunicacion.init({
-    mod: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0
-    },
     actuar: {
       type: DataTypes.INTEGER,
       allowNull: false,
