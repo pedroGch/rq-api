@@ -8,7 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-  
       nombre: {
         type: Sequelize.STRING,
         allowNull: false
@@ -78,46 +77,6 @@ module.exports = {
         allowNull: false
       },
       oInt: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-      },
-      int_libre: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-      },
-      mod_defensa: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-      },
-      mod_ataque: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-      },
-      mmr_cc: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-      },
-      mmr_tam: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-      },
-      mmr_des: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-      },
-      mod_danio: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      pto_fatiga: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-      },
-      pto_golpe: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-      },
-      pto_magicos: {
         type: Sequelize.SMALLINT,
         allowNull: false
       },
