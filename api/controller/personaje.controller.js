@@ -22,16 +22,29 @@ const create = async (data) =>{
   data.HabConocimientoId = newHabConocimiento.id
   data.HabManipulacionId = newHabManipulacion.id
   data.HabPercepcionId   = newHabPercepcion.id
-  data.altura            = 178
-  //data.ProfesionId       = 1
-  // data.CulturaId         = 1
 
   const p = await model.Personaje.create(data)
   return p
 }
 
 const getPersonajeId = async (id) =>{ 
-  const p = await model.Personaje.findByPk(id);
+  const p = await model.Personaje.findOne({
+    where:{
+      id: id
+    },
+    include:[
+      {model: model.Cultura},
+      {model: model.Profesion},
+      {model: model.Localizacion},
+      {model: model.HabConocimiento},
+      {model: model.HabAgilidad},
+      {model: model.HabComunicacion},
+      {model: model.HabPercepcion},
+      {model: model.HabManipulacion},
+      {model: model.HabMagicas},
+      {model: model.HabManipulacion}
+    ]
+  });
 
   const personaje = new PersonajeService(p.fue, p.con, p.des, p.per, p.asp, p.tam, p.int)
 
