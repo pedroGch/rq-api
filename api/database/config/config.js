@@ -1,13 +1,12 @@
 require('dotenv').config();
-const { DATABASE_URL } = process.env;
 
 module.exports = {
   "development":{
-    "username":"root",
+    "username":process.env.USERMANE,
     "password":"",
-    "database":"rq_api",
-    "host": "127.0.0.1",
-    "dialect":"mysql"
+    "database":process.env.DATABASE,
+    "host": process.env.HOST,
+    "dialect":process.env.DIALECT
   },
   "test": {
     "username": "root",
@@ -17,7 +16,7 @@ module.exports = {
     "dialect": "postgres"
   },
   "production": {
-    "url": DATABASE_URL,
+    "url": process.env.DATABASE_URL || "",
     "dialect": "postgres",
     "dialectOptions":{
       "ssl":{
