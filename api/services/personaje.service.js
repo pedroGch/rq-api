@@ -1,4 +1,6 @@
 const UbicacionesService = require('./ubicaciones.service');
+const model = require('../database/models/index')
+const { func } = require('joi');
 
 class PersonajeService {
   fue;
@@ -235,4 +237,32 @@ class PersonajeService {
 
 }
 
-module.exports = PersonajeService;
+async function getAllCharacters () {
+  return await model.Personaje.findAll()
+}
+
+async function getPersonajeId(id) {
+  return await model.Personaje.findOne({
+    where:{
+      id: id
+    },
+    include:[
+      {model: model.Cultura},
+      {model: model.Profesion},
+      {model: model.Localizacion},
+      {model: model.HabConocimiento},
+      {model: model.HabAgilidad},
+      {model: model.HabComunicacion},
+      {model: model.HabPercepcion},
+      {model: model.HabManipulacion},
+      {model: model.HabMagicas},
+      {model: model.HabManipulacion}
+    ]
+  });
+}
+
+module.exports = {
+  PersonajeService,
+  getAllCharacters,
+  getPersonajeId
+}
