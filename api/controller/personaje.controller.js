@@ -1,4 +1,5 @@
 const boom = require('@hapi/boom')
+const { json } = require('sequelize')
 const model = require('../database/models/index')
 const PersonajeService = require('./../services/personaje.service')
 
@@ -27,26 +28,20 @@ const create = async (data) =>{
   return p
 }
 
-const getPersonajeId = async (id) =>{ 
-  const p = await model.Personaje.findOne({
-    where:{
-      id: id
-    },
-    include:[
-      {model: model.Cultura},
-      {model: model.Profesion},
-      {model: model.Localizacion},
-      {model: model.HabConocimiento},
-      {model: model.HabAgilidad},
-      {model: model.HabComunicacion},
-      {model: model.HabPercepcion},
-      {model: model.HabManipulacion},
-      {model: model.HabMagicas},
-      {model: model.HabManipulacion}
-    ]
-  });
 
-  const personaje = new PersonajeService(p.fue, p.con, p.des, p.per, p.asp, p.tam, p.int)
+const getPersonajeId = async (req,res) =>{ 
+  const id = req.params.id
+  const p = await PersonajeService.getPersonajeId(id)
+  .then( personaje => {    
+    return personaje
+  })
+  if (!p){
+    throw boom.notFound('No pudimos hallar a tu personaje');
+  }
+  if (p.estaVivo){
+    throw boom.conflic('tu personaje ya no existe');
+  }
+  const personaje = new PersonajeService.PersonajeService(p.fue, p.con, p.des, p.per, p.asp, p.tam, p.int)
 
   p.dataValues.mod_defensa       = personaje.getModDanio() 
   p.dataValues.mod_ataque        = personaje.modAtaque()
@@ -58,26 +53,23 @@ const getPersonajeId = async (id) =>{
   p.dataValues.pto_golpe         = personaje.pGolpe() 
   p.dataValues.pto_magicos       = personaje.pMagicos()
 
-  if (!p){
-    throw boom.notFound('No pudimos hallar a tu personaje');
-  }
-  if (p.estaVivo){
-    throw boom.conflic('tu personaje ya no existe');
-  }
-  return p
+  res.status(200).json(personaje)
 }
 
 const update = async (id, data) =>{
   await model.Personaje.update(data, {where: {id : id}})
 }
 
-const  getPersonajes = async () =>{
-  const personajes = await model.Personaje.findAll();
-  if (!personajes){
-    throw boom.notFound('Por el momento no hay personajes cargados');
-  }
-  // agregar filtro para filtrar entre los vivos y los muertos 
-  return personajes;
+const  getPersonajes = async (req, res) =>{
+  PersonajeService.getAllCharacters()
+  .then(respuesta => {
+    if (respuesta.length > 0){
+      res.status(200).json(respuesta)
+    }else{
+      throw boom.notFound('Por el momento no hay personajes cargados')
+    }
+  })
+  
 }
 
 const getAllStats = async (id) =>{
@@ -86,10 +78,17 @@ const getAllStats = async (id) =>{
   return pService.getAllStats();
 }
 
+const createdCharacter = async (req, res) => {
+  const body = req.body;
+  let personaje = await create(body);
+  personaje ? res.status(201).json(personaje) : res.status(500).json("los dioses no aceptan a tu personaje")
+}
+
 module.exports = {
   create,
   getPersonajeId,
   getPersonajes,
   update,
-  getAllStats
+  getAllStats,
+  createdCharacter
 }
