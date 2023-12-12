@@ -261,8 +261,34 @@ async function getPersonajeId(id) {
   });
 }
 
+const create = async (data) =>{
+  const personaje = new PersonajeService(data.fue, data.con, data.des, data.per, data.asp, data.tam, data.int)
+
+  const newLocalizaciones  = await model.Localizacion.create(personaje.retornarPuntosDeGolpe())
+  const newHabSigilo       = await model.HabSigilo.create()
+  const newHabAgilidad     = await model.HabAgilidad.create()
+  const newHabMagicas      = await model.HabMagicas.create()
+  const newHabComunicacion = await model.HabComunicacion.create()
+  const newHabConocimiento = await model.HabConocimiento.create()
+  const newHabManipulacion = await model.HabManipulacion.create()
+  const newHabPercepcion   = await model.HabPercepcion.create()
+  
+  data.LocalizacionId    = newLocalizaciones.id
+  data.HabSigiloId       = newHabSigilo.id
+  data.HabAgilidadId     = newHabAgilidad.id
+  data.HabMagicaId       = newHabMagicas.id
+  data.HabComunicacionId = newHabComunicacion.id
+  data.HabConocimientoId = newHabConocimiento.id
+  data.HabManipulacionId = newHabManipulacion.id
+  data.HabPercepcionId   = newHabPercepcion.id
+
+  const p = await model.Personaje.create(data)
+  return p
+}
+
 module.exports = {
   PersonajeService,
   getAllCharacters,
-  getPersonajeId
+  getPersonajeId,
+  create
 }

@@ -3,32 +3,6 @@ const { json } = require('sequelize')
 const model = require('../database/models/index')
 const PersonajeService = require('./../services/personaje.service')
 
-const create = async (data) =>{
-  const personaje = new PersonajeService(data.fue, data.con, data.des, data.per, data.asp, data.tam, data.int)
-
-  const newLocalizaciones  = await model.Localizacion.create(personaje.retornarPuntosDeGolpe())
-  const newHabSigilo       = await model.HabSigilo.create()
-  const newHabAgilidad     = await model.HabAgilidad.create()
-  const newHabMagicas      = await model.HabMagicas.create()
-  const newHabComunicacion = await model.HabComunicacion.create()
-  const newHabConocimiento = await model.HabConocimiento.create()
-  const newHabManipulacion = await model.HabManipulacion.create()
-  const newHabPercepcion   = await model.HabPercepcion.create()
-  
-  data.LocalizacionId    = newLocalizaciones.id
-  data.HabSigiloId       = newHabSigilo.id
-  data.HabAgilidadId     = newHabAgilidad.id
-  data.HabMagicaId       = newHabMagicas.id
-  data.HabComunicacionId = newHabComunicacion.id
-  data.HabConocimientoId = newHabConocimiento.id
-  data.HabManipulacionId = newHabManipulacion.id
-  data.HabPercepcionId   = newHabPercepcion.id
-
-  const p = await model.Personaje.create(data)
-  return p
-}
-
-
 const getPersonajeId = async (req,res) =>{ 
   const id = req.params.id
   const p = await PersonajeService.getPersonajeId(id)
@@ -80,12 +54,11 @@ const getAllStats = async (id) =>{
 
 const createdCharacter = async (req, res) => {
   const body = req.body;
-  let personaje = await create(body);
-  personaje ? res.status(201).json(personaje) : res.status(500).json("los dioses no aceptan a tu personaje")
+  let personaje = await PersonajeService.create(body);
+  personaje ? res.status(201).json(personaje) : res.status(400).json("los dioses no aceptan a tu personaje")
 }
 
 module.exports = {
-  create,
   getPersonajeId,
   getPersonajes,
   update,
