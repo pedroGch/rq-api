@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const {crearJugador} = require ('../controller/jugador.controller')
 
 
 /**
@@ -49,4 +50,6 @@ const router = express.Router();
   })
 })
 
+/** Creo un nuevo jugador */
+router.post('/', crearJugador)
 module.exports = router;
