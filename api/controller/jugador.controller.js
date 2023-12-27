@@ -1,7 +1,12 @@
-const {altaPersonaje } = require('../services/jugador.service')
+const seviceJugador = require('../services/jugador.service')
 
 function crearJugador (req, res) {
-  altaPersonaje(req.body)
+  seviceJugador.altaJugador(req.body)
+  .then(jugador => {
+    if (jugador){
+      res.status(200).send('Bienvenido a Glorantha')
+    }
+  })
 }
 
 module.exports = {
