@@ -1,12 +1,14 @@
 const bcrypt = require('bcrypt')
+const { func } = require('joi')
+const model = require('../database/models/index')
 
-function altaPersonaje (data) {
+async function  altaJugador (data) {
   const hashedPassword = bcrypt.hashSync(data.password, parseInt(8))
   data = {...data, password: hashedPassword}
-  //falta guardar la informacion en la base de datos
-  console.log(data);
+  const jugador = await model.Jugador.create(data)
+  return jugador
 }
 
 module.exports = {
-  altaPersonaje
+  altaJugador
 }
