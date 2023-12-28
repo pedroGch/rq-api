@@ -9,6 +9,20 @@ function crearJugador (req, res) {
   })
 }
 
+function loginJugador(req, res) {
+  seviceJugador.loginJugador(req.body)
+    .then(jugador => {
+      console.log(jugador);
+      if (jugador){
+        res.status(200).json(jugador)
+      }
+    })
+    .catch(err => {
+      res.status(500).json(err)
+    })
+}
+
 module.exports = {
-  crearJugador
+  crearJugador,
+  loginJugador
 }
