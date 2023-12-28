@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {crearJugador} = require ('../controller/jugador.controller')
+const {crearJugador, loginJugador} = require ('../controller/jugador.controller')
 
 
 /**
@@ -52,4 +52,7 @@ const {crearJugador} = require ('../controller/jugador.controller')
 
 /** Creo un nuevo jugador */
 router.post('/', crearJugador)
+
+/** realiza el proceso de login de un jugador */
+router.post('/login', loginJugador)
 module.exports = router;
