@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Jugador.belongsTo(models.Personaje)
+      Jugador.hasMany(models.Personaje)
     }
   }
   Jugador.init({
