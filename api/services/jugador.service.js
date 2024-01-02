@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const model = require('../database/models/index')
+require('dotenv').config();
 
 async function  altaJugador (data) {
-  const hashedPassword = bcrypt.hashSync(data.password, parseInt(8))
+  const hashedPassword = bcrypt.hashSync(data.password, parseInt(process.env.HASNUMBER))
   data = {...data, password: hashedPassword}
   const jugador = await model.Jugador.create(data)
   return jugador
@@ -19,7 +20,7 @@ async function loginJugador(data) {
     throw {mensaje : 'usuario o contraseña incorrecta'}  
   }
 
-  const token = jwt.sign(data, "glorantha", {expiresIn:86400})
+  const token = jwt.sign(data, process.env.SECRETKEY, {expiresIn:60})
   
   data = {...data, password:undefined, token: token}
   
